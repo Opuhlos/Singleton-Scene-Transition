@@ -4,5 +4,5 @@ extends Node2D
 
 func _ready() -> void:
 	if SceneManager.player_last_vector:
-		player.position.x = 40.0
+		player.position.x = 1112.0
 		player.position.y = SceneManager.player_last_vector.y
