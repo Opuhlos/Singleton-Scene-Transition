@@ -3,6 +3,7 @@ extends Node
 signal transition_scene(scene_path: String)
 
 var current_scene: Node = null
+var player_last_vector: Vector2
 
 func _ready() -> void:
 	# Set the current scene
