@@ -17,11 +17,14 @@ func _ready() -> void:
 	transition_scene.connect(goto_scene)
 
 func goto_scene(scene_path: String):	
-	
+	# Load the transition scene
 	var transition_out_packed: PackedScene = ResourceLoader.load("res://components/transition_fade_out.tscn")
+	# Instantiate it
 	var transition_out: Node2D = transition_out_packed.instantiate()
+	# Add it to the scene tree so that the animation may play
 	current_scene.add_child(transition_out)
 	
+	# Wait for the animation to finish
 	await transition_animation_finished
 	
 	# Using Object.call_deferred makes it so that the function "deferred_goto_scene"
@@ -42,6 +45,9 @@ func _deferred_goto_scene(scene_path: String):
 	# Add it to the active scene, as child of root
 	get_tree().root.add_child(current_scene)
 	
+	# Load the transition scene
 	var transition_out_packed: PackedScene = ResourceLoader.load("res://components/transition_fade_in.tscn")
+	# Instantiate it
 	var transition_out: Node2D = transition_out_packed.instantiate()
+	# Add it to the scene tree so that the animation may play
 	current_scene.add_child(transition_out)
