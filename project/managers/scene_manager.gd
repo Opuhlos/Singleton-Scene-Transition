@@ -4,6 +4,7 @@ signal transition_scene(scene_path: String)
 signal transition_animation_finished
 
 var current_scene: Node = null
+var previous_scene: String
 var player_last_vector: Vector2 = Vector2.ZERO
 
 var is_pause_menu_visible: bool = false
@@ -34,6 +35,7 @@ func _process(_delta: float) -> void:
 
 func goto_scene(scene_path: String):	
 	is_transitioning = true
+	previous_scene = current_scene.name
 	# Load the transition scene
 	var transition_out_packed: PackedScene = ResourceLoader.load("res://components/transition_fade_out.tscn")
 	# Instantiate it
