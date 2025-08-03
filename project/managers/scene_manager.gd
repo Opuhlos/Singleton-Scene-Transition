@@ -20,9 +20,15 @@ func _ready() -> void:
 	transition_scene.connect(goto_scene)
 
 func _process(_delta: float) -> void:
+	# Show the pause menu when pressing escape. Furthermore, prevent it from being opened
+	# multiple times resulting in stacking and from opening during transitions
+	# There is currently nothing stopping you from openining it in the main menu
 	if Input.is_action_just_pressed("escape") and !is_pause_menu_visible and !is_transitioning:
+		# Load the pause menu scene
 		var menu_packed: PackedScene = ResourceLoader.load("res://ui/pause menu/pause_menu.tscn")
+		# Instantiate it
 		var menu: Node = menu_packed.instantiate()
+		# Add it to the scene tree so that the menu is visible
 		current_scene.add_child(menu)
 		is_pause_menu_visible = true
 
