@@ -11,7 +11,7 @@
 [sub_resource type="Resource" id="Resource_bls4j"]
 script = ExtResource("2_sglur")
 name = "Bar"
-speed = 250
+speed = 80
 metadata/_custom_type_script = "uid://bcsvkvqpdog4a"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkugw"]
@@ -158,15 +158,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(64, 96)
+size = Vector2(16, 24)
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_abrql")
 stats = SubResource("Resource_bls4j")
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_sglur")
 animation = &"walk_left"
 

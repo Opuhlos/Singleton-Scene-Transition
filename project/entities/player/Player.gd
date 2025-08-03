@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 class_name Player
 
 enum FACE_DIRECTION {FACE_UP, FACE_DOWN, FACE_LEFT, FACE_RIGHT}
@@ -17,16 +17,16 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
-	var direction: Vector2 = Vector2.ZERO
+	velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("left"):
-		direction.x = -1
+		velocity.x = -speed
 	if Input.is_action_pressed("right"):
-		direction.x = 1
+		velocity.x = speed
 	if Input.is_action_pressed("up"):
-		direction.y = -1
+		velocity.y = -speed
 	if Input.is_action_pressed("down"):
-		direction.y = 1
+		velocity.y = speed
 	
 	if Input.is_action_pressed("down"):
 		sprite.play("walk_down")
@@ -39,7 +39,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.stop()
 	
-	position += direction.normalized() * speed * delta
+	move_and_slide()
+	# position += direction.normalized() * speed * delta
 
 func set_face_direction(direction: FACE_DIRECTION):
 	if direction == FACE_DIRECTION.FACE_UP:
