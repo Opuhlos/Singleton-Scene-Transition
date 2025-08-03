@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bht1yeb28h611"]
 
-[ext_resource type="Script" uid="uid://bmsuwkr3t0pb4" path="res://ui/main menu/main_menu.gd" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bmsuwkr3t0pb4" path="res://ui/main menu/main_menu.gd" id="1_w6cik"]
 
 [node name="MainMenu" type="Node"]
-script = ExtResource("1_06t4h")
+script = ExtResource("1_w6cik")
 
 [node name="Panel" type="Panel" parent="."]
 anchors_preset = 15
