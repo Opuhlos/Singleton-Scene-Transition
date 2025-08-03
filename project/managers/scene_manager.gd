@@ -1,6 +1,7 @@
 extends Node
 
 signal transition_scene(scene_path: String)
+signal transition_animation_finished
 
 var current_scene: Node = null
 var player_last_vector: Vector2
@@ -15,7 +16,14 @@ func _ready() -> void:
 	# Connect the transition_area_entered signal to its corresponding function
 	transition_scene.connect(goto_scene)
 
-func goto_scene(scene_path: String):
+func goto_scene(scene_path: String):	
+	
+	var transition_out_packed: PackedScene = ResourceLoader.load("res://components/transition_fade_out.tscn")
+	var transition_out: Node2D = transition_out_packed.instantiate()
+	current_scene.add_child(transition_out)
+	
+	await transition_animation_finished
+	
 	# Using Object.call_deferred makes it so that the function "deferred_goto_scene"
 	# is only ran once all the code from the current scene has completed
 	# Thus, the current scene will not be removed while it is still being used 
@@ -34,3 +42,6 @@ func _deferred_goto_scene(scene_path: String):
 	# Add it to the active scene, as child of root
 	get_tree().root.add_child(current_scene)
 	
+	var transition_out_packed: PackedScene = ResourceLoader.load("res://components/transition_fade_in.tscn")
+	var transition_out: Node2D = transition_out_packed.instantiate()
+	current_scene.add_child(transition_out)

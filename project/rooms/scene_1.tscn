@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b52523scydptv" path="res://rooms/scene_1.gd" id="1_rrpvg"]
 [ext_resource type="PackedScene" uid="uid://dtruadqs6ns8j" path="res://entities/player/player.tscn" id="1_y3e7o"]
-[ext_resource type="PackedScene" uid="uid://d088dmnwy5u55" path="res://components/transition_area.tscn" id="2_y3e7o"]
+[ext_resource type="PackedScene" uid="uid://d088dmnwy5u55" path="res://entities/transition/transition_area.tscn" id="2_y3e7o"]
 
 [node name="Scene_1" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_rrpvg")
@@ -14,7 +14,7 @@ offset_bottom = 23.0
 text = "Scene 1"
 
 [node name="Player" parent="." instance=ExtResource("1_y3e7o")]
-position = Vector2(1112, 336)
+position = Vector2(544, 352)
 
 [node name="TransitionArea" parent="." instance=ExtResource("2_y3e7o")]
 position = Vector2(1160, 320)
