@@ -10,4 +10,5 @@ func _process(_delta: float) -> void:
 		queue_free()
 
 func _on_button_pressed() -> void:
+	SceneManager.is_pause_menu_visible = false
 	SceneManager.transition_scene.emit("res://ui/main menu/main_menu.tscn")

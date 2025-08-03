@@ -4,7 +4,7 @@ signal transition_scene(scene_path: String)
 signal transition_animation_finished
 
 var current_scene: Node = null
-var player_last_vector: Vector2
+var player_last_vector: Vector2 = Vector2.ZERO
 
 var is_pause_menu_visible: bool = false
 var is_transitioning: bool = false
